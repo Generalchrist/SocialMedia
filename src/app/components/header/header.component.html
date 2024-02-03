@@ -1,12 +1,13 @@
 <header class="bg-white">
-    <nav class="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8 pt-10" aria-label="Global">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between p-6 lg:px-8 pt-10" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
                 <img class="h-8 w-auto" [src]="headerLogo" alt="Rast Mobile">
             </a>
         </div>
-        <div class="flex lg:hidden">
-            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" (click)="toggleMenu()">
+        <div class="flex lg:hidden mx-8">
+            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                (click)="toggleMenu()">
                 <span class="sr-only">Open main menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     aria-hidden="true">
@@ -17,7 +18,7 @@
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
             <a [routerLink]="item.link" *ngFor="let item of headerElements; let last = last; index as i"
-                class="text-sm px-10 font-semibold leading-6 text-gray-900" [class.mr-2]="!last">
+                class="text-sm px-3 font-normal leading-5 text-black font-poppins" [class.mr-5]="!last">
                 {{item.name}}
             </a>
         </div>
@@ -25,12 +26,12 @@
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a [routerLink]="item.link" *ngFor="let item of headerIcons; let last = last; index as i"
                 class="text-sm font-semibold text-gray-900" [class.mr-4]="!last">
-                <img [src]="item.src" class="h-5" [alt]="item.name">
+                <img [src]="item.src" class="h-[18px]" [alt]="item.name">
             </a>
         </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" *ngIf="isMobileMenuOpen"  role="dialog" aria-modal="true">
+    <div class="lg:hidden" *ngIf="isMobileMenuOpen" role="dialog" aria-modal="true">
         <!-- Background backdrop, show/hide based on slide-over state. -->
         <div class="fixed inset-0 z-10"></div>
         <div
@@ -55,6 +56,15 @@
                             {{item.name}}
                         </a>
 
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <div class="flow-root">
+                        <a class="text-base font-semibold text-gray-900 -m-3 p-3 flex justify-evenly max-w-[200px]">
+                            <img [src]="item.src" [routerLink]="item.link" *ngFor="let item of headerIcons"
+                                class="h-[18px]" [alt]="item.name">
+                        </a>
                     </div>
                 </div>
             </div>
