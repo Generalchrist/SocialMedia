@@ -19,6 +19,7 @@ export class SocialMediaService {
 
   postSocialMedia(data: SocialMedia) {
     let socialMedia = this.getSocialMedia();
+    data.id = socialMedia.length 
     socialMedia.push(data);
     localStorage.setItem('socialMedia', JSON.stringify(socialMedia));
   }
