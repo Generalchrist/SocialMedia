@@ -1,8 +1,86 @@
-<dx-data-grid id="gridContainer" [customizeColumns]="customizeColumns" [dataSource]="socailMedias" keyExpr="id"
-    [showBorders]="true">
-    <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
-    <dxo-paging [pageSize]="10"> </dxo-paging>
-    <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" displayMode="full"
-        [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo" [showNavigationButtons]="showNavButtons">
-    </dxo-pager>
-</dx-data-grid>
+<div class="py-12 px-16 ">
+    <dx-data-grid id="gridContainer" [dataSource]="socailMedias" keyExpr="id" [showBorders]="true"
+        [rowAlternationEnabled]="true">
+        <dxo-load-panel [enabled]="true"></dxo-load-panel>
+        <dxo-sorting mode="multiple"></dxo-sorting>
+        <dxo-filter-builder-popup [(visible)]="filterPopupVisible">
+        </dxo-filter-builder-popup>
+
+        <dxi-column dataField="socialMediaLink" caption="Sosyal Medya Linki" cssClass="custom-cell"></dxi-column>
+        <dxi-column dataField="socialMediaName" caption="Sosyal Medya Adı" cssClass="custom-cell"></dxi-column>
+        <dxi-column dataField="socialMediaDescription" caption="Açıklama" cssClass="custom-cell"></dxi-column>
+
+        <dxo-sorting mode="multiple"></dxo-sorting>
+        <dxo-paging [pageSize]="10"> </dxo-paging>
+        <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" displayMode="compact" [showInfo]="true"
+            [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo"
+            [showNavigationButtons]="showNavButtons">
+        </dxo-pager>
+
+        <dxo-search-panel [visible]="true" placeholder="Search objects..." [width]="380"></dxo-search-panel>
+
+        <dxo-toolbar [visible]="true">
+            <dxi-item name="searchPanel" location="before">
+                <dxo-search-panel [visible]="true" placeholder="Search objects..." [width]="380"></dxo-search-panel>
+            </dxi-item>
+
+            <!-- <dxi-item name="filterPanel">
+                <dxo-filter-panel [visible]="true"></dxo-filter-panel>
+            </dxi-item> -->
+            <dxi-item location="before" name="filter">
+                <dx-button icon="filter" [width]="49"
+                    class="bg-[#FFFFFF] text-white rounded-[39px] border-none font-medium text-sm"
+                    (onClick)="openFilterDialog()"></dx-button>
+            </dxi-item>
+
+            <dxi-item location="after" name="add">
+                <dx-button icon="plus" [width]="175" text="Yeni Hesap Ekle"
+                    class="bg-primary text-white rounded-[39px] border-none font-medium text-sm"
+                    (onClick)="openAddNewDialog()"></dx-button>
+            </dxi-item>
+
+        </dxo-toolbar>
+    </dx-data-grid>
+
+
+    <dx-popup [width]="660" [height]="540" [dragEnabled]="false" [hideOnOutsideClick]="true"
+        [(visible)]="addNewPopupVisible" [showCloseButton]="true">
+        <div *dxTemplate="let data of 'content'">
+            <div class="popup-property-details">
+                <form [formGroup]="socialMediaForm">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-2">
+                            <dx-text-box formControlName="socialMediaName" placeholder="Sosyal Medya Adı"
+                                class="w-full"></dx-text-box>
+                        </div>
+                        <div class="col-span-2">
+                            <dx-text-box formControlName="socialMediaLink" placeholder="Sosyal Medya Linki"
+                                class="w-full"></dx-text-box>
+                        </div>
+                        <div class="col-span-2">
+                            <dx-text-box formControlName="socialMediaDescription" placeholder="Açıklama"
+                                class="w-full"></dx-text-box>
+                        </div>
+                    </div>
+                    <div class="flex justify-end mt-4">
+                        <dx-button text="Kaydet" (click)="onSubmit()"
+                            class="bg-primary text-white rounded-[39px] border-none font-medium text-sm"></dx-button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dx-popup>
+</div>
+
+<!-- 
+<dxo-filter-panel [visible]="true"></dxo-filter-panel>
+<dxo-filter-builder [allowHierarchicalFields]="true">
+</dxo-filter-builder>
+
+<dxo-search-panel [visible]="true" placeholder="Search objects..." [width]="380"></dxo-search-panel>
+<dxo-sorting mode="multiple"></dxo-sorting>
+<dxo-scrolling mode="virtual"></dxo-scrolling>
+<dxo-paging [pageSize]="10"> </dxo-paging>
+<dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" displayMode="adaptive" [showInfo]="true"
+    [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo" [showNavigationButtons]="showNavButtons">
+</dxo-pager> -->
