@@ -1,0 +1,8 @@
+<dx-data-grid id="gridContainer" [customizeColumns]="customizeColumns" [dataSource]="socailMedias" keyExpr="id"
+    [showBorders]="true">
+    <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
+    <dxo-paging [pageSize]="10"> </dxo-paging>
+    <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" displayMode="full"
+        [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo" [showNavigationButtons]="showNavButtons">
+    </dxo-pager>
+</dx-data-grid>

@@ -25,3 +25,24 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+# RastMobileTask - Frontend
+
+## What is this project about?
+This project is a simple frontend application that allows users to view a list of products and their details. The user can also add a product to the list and delete a product from the list.
+
+## My Steps to complete the project
+1. I created a new Angular project using the Angular CLI.
+2. I created a folder structure for the project.
+3. I designed the header component.
+4. I added the product list component using devExtreme library.
+5. I customized the product list component.
+6. I added the product search for the product list component.
+7. I added the product filter for the product list component.
+8. I added the paging and sorting for the product list component.
+9. I added the product add component.
+
+
