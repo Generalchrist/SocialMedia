@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent {
   // Variables
+  headerLogo = '/assets/images/logo.svg';
+  isMobileMenuOpen: boolean = false;
+
   headerElements = [
     { name: 'Hakkımızda', link: '/about' },
     { name: 'Jüri - Yarışma Yazılımı', link: '/jury' },
@@ -21,11 +24,7 @@ export class HeaderComponent {
     { name: 'linkedin', link: '#linkedin', src: '/assets/images/linkedin.svg' },
   ];
 
-  headerLogo = '/assets/images/logo.svg';
-
-  isMobileMenuOpen: boolean = false;
-
-  // Methods
+  // Menu Methods
   toggleMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
@@ -33,5 +32,4 @@ export class HeaderComponent {
   closeMenu(): void {
     this.isMobileMenuOpen = false;
   }
-
 }
