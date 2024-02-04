@@ -42,7 +42,6 @@ export class DataGridComponent implements OnInit {
       this.addText = ""
     }
     this.socailMedias = this.socialMediaService.getSocialMedia();
-    this.socialMediaService.generateSocialMediaData();
   }
 
   @HostListener('window:resize', ['$event'])

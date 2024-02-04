@@ -5,3 +5,16 @@
     <app-data-grid></app-data-grid>
 </div>
 <!-- <router-outlet></router-outlet> -->
+
+<dx-popup width="90vw" maxWidth="450" height="22%" [dragEnabled]="false" [hideOnOutsideClick]="true"
+    title="Uygulamaya Hoşgeldiniz !" [(visible)]="initPopupVisible" [showCloseButton]="true">
+    <div class="mt-4">
+        <p class="mb-1 ml-2 text-sm font-medium text-[#06163A]">
+            Uygulamayı kullanmaya başlamak için "Başla" butonuna basınız.
+        </p>
+        <div class="flex justify-center mt-5">
+            <dx-button text="Başla" (click)="closePopup()"
+                class="bg-primary text-white rounded-[39px] border-none font-medium text-sm"></dx-button>
+        </div>
+    </div>
+</dx-popup>

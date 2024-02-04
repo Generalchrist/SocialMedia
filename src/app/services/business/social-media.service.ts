@@ -18,7 +18,7 @@ export class SocialMediaService {
 
   postSocialMedia(data: SocialMedia) {
     let socialMedia = this.getSocialMedia();
-    data.id = socialMedia.length 
+    data.id = socialMedia.length
     socialMedia.push(data);
     localStorage.setItem('socialMedia', JSON.stringify(socialMedia));
   }
@@ -51,9 +51,9 @@ export class SocialMediaService {
       for (let i = 0; i < 100; i++) {
         let data = {
           id: i + 1,
-          socialMediaLink: 'https://www.test.com',
-          socialMediaName: 'test',
-          socialMediaDescription: 'test is a social media platform'
+          socialMediaLink: `https://www.test${i}.com`,
+          socialMediaName: `test${i}`,
+          socialMediaDescription: `test${i} is a social media platform`
         }
         socialMedia.push(data);
       }

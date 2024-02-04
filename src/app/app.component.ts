@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SocialMediaService } from './services/business/social-media.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rastMobileTask';
+  initPopupVisible = false;
+
+
+  constructor(private socialMediaService: SocialMediaService) {
+    if (localStorage.getItem('socialMedia') === "[]") {
+      this.initPopupVisible = true;
+    }
+  }
+
+  closePopup() {
+    this.socialMediaService.generateSocialMediaData();
+    this.initPopupVisible = false;
+    window.location.reload();
+  }
 }
