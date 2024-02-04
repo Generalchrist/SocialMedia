@@ -59,9 +59,7 @@ export class DataGridComponent implements OnInit {
     this.socailMedias = this.socialMediaService.getSocialMedia();
   }
 
-
   // dialog methods
-
   openFilterDialog() {
     this.filterPopupVisible = true;
   }

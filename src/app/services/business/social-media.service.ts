@@ -12,7 +12,6 @@ export class SocialMediaService {
     }
   }
 
-
   getSocialMedia() {
     return JSON.parse(localStorage.getItem('socialMedia') || '{}');
   }

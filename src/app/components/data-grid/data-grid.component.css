@@ -79,6 +79,8 @@
 
 
 /************** dataGrid table css START **************/
+
+/* dataGrid header */
 ::ng-deep .dx-bordered-top-view {
   border-radius: 8px !important;
   border-bottom-left-radius: 0px !important;
@@ -86,6 +88,7 @@
   border-color: #C4CEE5 !important;
 }
 
+/* dataGrid body */
 ::ng-deep .dx-bordered-bottom-view {
   border-radius: 8px !important;
   border-top-left-radius: 0px !important;
@@ -149,12 +152,28 @@
 ::ng-deep .dx-dropdowneditor.dx-dropdowneditor-field-clickable {
   border-radius: 39px !important;
   border-color: #CFC0FF !important;
+  width: 90px !important;
+  font-size: 12px !important;
+  margin-left: -10px !important;
 }
 
 ::ng-deep .dx-dropdowneditor-icon::before {
   content: url("../../../assets/images/sort.svg") !important;
   top: 45% !important;
+} 
+
+::ng-deep .dx-dropdowneditor-icon::after {
+  content: "rows" !important;
+  position: relative !important;
+  top: 5% !important;
+  left: -32px !important;
+  font-size: 10px !important;
+  font-family: 'Poppins', sans-serif !important;
 }
+
+/* ::ng-deep .dx-texteditor-container {
+  width: 90px !important;
+} */
 
 ::ng-deep .dx-dropdowneditor-icon:hover {
   background-color: unset !important;

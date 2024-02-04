@@ -5,8 +5,7 @@
         <dxo-sorting mode="multiple"></dxo-sorting>
 
 
-
-        <dxo-filter-builder  [allowHierarchicalFields]="true">
+        <dxo-filter-builder [allowHierarchicalFields]="true">
         </dxo-filter-builder>
         <dxo-filter-builder-popup [(visible)]="filterPopupVisible">
         </dxo-filter-builder-popup>
@@ -21,7 +20,7 @@
 
         <dxo-sorting mode="multiple"></dxo-sorting>
         <dxo-paging [pageSize]="10"></dxo-paging>
-        <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" displayMode="compact" [showInfo]="true"
+        <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" displayMode="compact" [showInfo]="true" 
             [showPageSizeSelector]="showPageSizeSelector" [showNavigationButtons]="showNavButtons">
         </dxo-pager>
 
@@ -33,9 +32,6 @@
                 <dxo-search-panel [visible]="true"></dxo-search-panel>
             </dxi-item>
 
-            <!-- <dxi-item name="filterPanel">
-                <dxo-filter-panel [visible]="true"></dxo-filter-panel>
-            </dxi-item> -->
             <dxi-item location="before" name="filter">
                 <dx-button icon="filter" [width]="49"
                     class="bg-[#FFFFFF] text-white rounded-[39px] border-none font-medium text-sm"
@@ -47,7 +43,6 @@
                     class="bg-primary text-white rounded-[39px] border-none font-medium text-sm"
                     (onClick)="openAddNewDialog()"></dx-button>
             </dxi-item>
-
         </dxo-toolbar>
     </dx-data-grid>
 
@@ -85,16 +80,3 @@
         </div>
     </dx-popup>
 </div>
-
-<!-- 
-<dxo-filter-panel [visible]="true"></dxo-filter-panel>
-<dxo-filter-builder [allowHierarchicalFields]="true">
-</dxo-filter-builder>
-
-<dxo-search-panel [visible]="true" placeholder="Search objects..." [width]="380"></dxo-search-panel>
-<dxo-sorting mode="multiple"></dxo-sorting>
-<dxo-scrolling mode="virtual"></dxo-scrolling>
-<dxo-paging [pageSize]="10"> </dxo-paging>
-<dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" displayMode="adaptive" [showInfo]="true"
-    [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo" [showNavigationButtons]="showNavButtons">
-</dxo-pager> -->
