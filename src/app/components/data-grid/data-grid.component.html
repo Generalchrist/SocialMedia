@@ -48,4 +48,37 @@
             </dxi-item>
         </dxo-toolbar>
     </dx-data-grid>
+
+    <dx-popup width="80vw" maxWidth="450" height="45%" [dragEnabled]="false" [hideOnOutsideClick]="true"
+        [(visible)]="addNewPopupVisible" [showCloseButton]="true">
+        <div *dxTemplate="let data of 'content'">
+            <div class="popup-property-details">
+                <form [formGroup]="socialMediaForm">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="col-span-2">
+                            <p class="mb-1 ml-2 text-sm font-medium text-[#06163A]">Sosyal Medya Adı</p>
+                            <dx-text-box formControlName="socialMediaName" placeholder="Sosyal Medya Adı"
+                                class="w-full"></dx-text-box>
+                        </div>
+                        <div class="col-span-2">
+                            <p class="mb-1 ml-2 text-sm font-medium text-[#06163A]">Sosyal Medya Linki</p>
+                            <dx-text-box formControlName="socialMediaLink" placeholder="Sosyal Medya Linki"
+                                class="w-full"></dx-text-box>
+                        </div>
+                        <div class="col-span-2">
+                            <p class="mb-1 ml-2 text-sm font-medium text-[#06163A]">Açıklama</p>
+                            <dx-text-box formControlName="socialMediaDescription" placeholder="Açıklama"
+                                class="w-full"></dx-text-box>
+                        </div>
+                    </div>
+                    <div class="flex justify-end mt-10">
+                        <dx-button text="Vazgeç" (click)="closeAddNewDialog()"
+                            class="bg-secondary text-primary rounded-[39px] border-none font-medium text-sm mr-4"></dx-button>
+                        <dx-button text="Kaydet" (click)="onSubmit()"
+                            class="bg-primary text-white rounded-[39px] border-none font-medium text-sm"></dx-button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dx-popup>
 </div>

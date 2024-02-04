@@ -50,12 +50,9 @@ export class DataGridComponent implements OnInit {
     this.screenWidth = window.innerWidth;
   }
 
-  customizeColumns(columns: any) {
-    columns[0].visible = false;
-  }
-
   onSubmit() {
     this.socialMediaService.postSocialMedia(this.socialMediaForm.value as SocialMedia);
+    this.addNewPopupVisible = false;
     this.socailMedias = this.socialMediaService.getSocialMedia();
   }
 
