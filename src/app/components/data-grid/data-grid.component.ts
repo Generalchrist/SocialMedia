@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { SocialMedia } from 'src/app/models/socialMedia';
 import { SocialMediaService } from 'src/app/services/business/social-media.service';
@@ -9,8 +9,8 @@ import { SocialMediaService } from 'src/app/services/business/social-media.servi
   styleUrls: ['./data-grid.component.css']
 })
 export class DataGridComponent implements OnInit {
-  allowedPageSizes = [5, 10, 50];
-  socailMedias: SocialMedia[];
+  allowedPageSizes = [4, 10, 50];
+  socailMedias: SocialMedia[] = [];
   showPageSizeSelector = true;
   showInfo = true;
   showNavButtons = true;
@@ -18,13 +18,9 @@ export class DataGridComponent implements OnInit {
   searchData: any;
   filterPopupVisible = false;
   addNewPopupVisible = false;
-
-  constructor(
-    private socialMediaService: SocialMediaService,
-    private formBuilder: FormBuilder
-  ) {
-    this.socailMedias = this.socialMediaService.getSocialMedia();
-  }
+  searchText: string = "Search objects..."
+  screenWidth: any;
+  addText: string = "Yeni Hesap Ekle"
 
   socialMediaForm = this.formBuilder.group({
     socialMediaLink: [''],
@@ -32,8 +28,26 @@ export class DataGridComponent implements OnInit {
     socialMediaDescription: ['']
   });
 
+  constructor(
+    private socialMediaService: SocialMediaService,
+    private formBuilder: FormBuilder
+  ) { }
+
+
   ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth < 768) {
+      this.showPageSizeSelector = false;
+      this.searchText = ""
+      this.addText = ""
+    }
+    this.socailMedias = this.socialMediaService.getSocialMedia();
     this.socialMediaService.generateSocialMediaData();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = window.innerWidth;
   }
 
   customizeColumns(columns: any) {
@@ -41,8 +55,8 @@ export class DataGridComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.socialMediaForm.value);
     this.socialMediaService.postSocialMedia(this.socialMediaForm.value as SocialMedia);
+    this.socailMedias = this.socialMediaService.getSocialMedia();
   }
 
 
@@ -54,6 +68,10 @@ export class DataGridComponent implements OnInit {
 
   openAddNewDialog() {
     this.addNewPopupVisible = true;
+  }
+
+  closeAddNewDialog() {
+    this.addNewPopupVisible = false;
   }
 
 }

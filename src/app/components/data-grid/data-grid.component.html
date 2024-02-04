@@ -3,25 +3,34 @@
         [rowAlternationEnabled]="true">
         <dxo-load-panel [enabled]="true"></dxo-load-panel>
         <dxo-sorting mode="multiple"></dxo-sorting>
+
+
+
+        <dxo-filter-builder  [allowHierarchicalFields]="true">
+        </dxo-filter-builder>
         <dxo-filter-builder-popup [(visible)]="filterPopupVisible">
         </dxo-filter-builder-popup>
 
-        <dxi-column dataField="socialMediaLink" caption="Sosyal Medya Linki" cssClass="custom-cell"></dxi-column>
-        <dxi-column dataField="socialMediaName" caption="Sosyal Medya Adı" cssClass="custom-cell"></dxi-column>
-        <dxi-column dataField="socialMediaDescription" caption="Açıklama" cssClass="custom-cell"></dxi-column>
+
+        <dxi-column dataField="socialMediaLink" dataType="string" caption="Sosyal Medya Linki" cssClass="custom-cell"
+            minWidth="250"></dxi-column>
+        <dxi-column dataField="socialMediaName" dataType="string" caption="Sosyal Medya Adı" cssClass="custom-cell"
+            minWidth="250"></dxi-column>
+        <dxi-column dataField="socialMediaDescription" dataType="string" caption="Açıklama" cssClass="custom-cell"
+            minWidth="250"></dxi-column>
 
         <dxo-sorting mode="multiple"></dxo-sorting>
-        <dxo-paging [pageSize]="10"> </dxo-paging>
+        <dxo-paging [pageSize]="10"></dxo-paging>
         <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" displayMode="compact" [showInfo]="true"
-            [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo"
-            [showNavigationButtons]="showNavButtons">
+            [showPageSizeSelector]="showPageSizeSelector" [showNavigationButtons]="showNavButtons">
         </dxo-pager>
 
-        <dxo-search-panel [visible]="true" placeholder="Search objects..." [width]="380"></dxo-search-panel>
+        <dxo-search-panel [visible]="true" showClearButton="false" [placeholder]="searchText"
+            width="30vw"></dxo-search-panel>
 
         <dxo-toolbar [visible]="true">
             <dxi-item name="searchPanel" location="before">
-                <dxo-search-panel [visible]="true" placeholder="Search objects..." [width]="380"></dxo-search-panel>
+                <dxo-search-panel [visible]="true"></dxo-search-panel>
             </dxi-item>
 
             <!-- <dxi-item name="filterPanel">
@@ -34,7 +43,7 @@
             </dxi-item>
 
             <dxi-item location="after" name="add">
-                <dx-button icon="plus" [width]="175" text="Yeni Hesap Ekle"
+                <dx-button icon="plus" width="10vw" maxWidth="175" [text]="addText"
                     class="bg-primary text-white rounded-[39px] border-none font-medium text-sm"
                     (onClick)="openAddNewDialog()"></dx-button>
             </dxi-item>
@@ -43,26 +52,31 @@
     </dx-data-grid>
 
 
-    <dx-popup [width]="660" [height]="540" [dragEnabled]="false" [hideOnOutsideClick]="true"
+    <dx-popup width="80vw" maxWidth="450" height="45%" [dragEnabled]="false" [hideOnOutsideClick]="true"
         [(visible)]="addNewPopupVisible" [showCloseButton]="true">
         <div *dxTemplate="let data of 'content'">
             <div class="popup-property-details">
                 <form [formGroup]="socialMediaForm">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="col-span-2">
+                            <p class="mb-1 ml-2 text-sm font-medium text-[#06163A]">Sosyal Medya Adı</p>
                             <dx-text-box formControlName="socialMediaName" placeholder="Sosyal Medya Adı"
                                 class="w-full"></dx-text-box>
                         </div>
                         <div class="col-span-2">
+                            <p class="mb-1 ml-2 text-sm font-medium text-[#06163A]">Sosyal Medya Linki</p>
                             <dx-text-box formControlName="socialMediaLink" placeholder="Sosyal Medya Linki"
                                 class="w-full"></dx-text-box>
                         </div>
                         <div class="col-span-2">
+                            <p class="mb-1 ml-2 text-sm font-medium text-[#06163A]">Açıklama</p>
                             <dx-text-box formControlName="socialMediaDescription" placeholder="Açıklama"
                                 class="w-full"></dx-text-box>
                         </div>
                     </div>
-                    <div class="flex justify-end mt-4">
+                    <div class="flex justify-end mt-10">
+                        <dx-button text="Vazgeç" (click)="closeAddNewDialog()"
+                            class="bg-secondary text-primary rounded-[39px] border-none font-medium text-sm mr-4"></dx-button>
                         <dx-button text="Kaydet" (click)="onSubmit()"
                             class="bg-primary text-white rounded-[39px] border-none font-medium text-sm"></dx-button>
                     </div>

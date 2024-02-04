@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DataGridComponent } from './components/data-grid/data-grid.component';
-import { DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxSelectBoxModule, DxTemplateModule, DxTextBoxModule, DxPopupModule } from 'devextreme-angular';
+import { DxButtonModule, DxCheckBoxModule, DxDataGridModule, DxSelectBoxModule, DxTemplateModule, DxTextBoxModule, DxPopupModule, DxFilterBuilderModule } from 'devextreme-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -24,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DxTemplateModule,
     DxTextBoxModule,
     DxPopupModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DxFilterBuilderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

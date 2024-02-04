@@ -2,15 +2,9 @@
 
 /* ::ng-deep .dx-button-mode-contained,  */
 ::ng-deep .dx-state-hover {
-  border: 1px solid #C4CEE5 !important;
+  background-color: #CFC0FF !important;
+  /* border: 1px solid #C4CEE5 !important; */
 }
-
-/* ::ng-deep .dx-texteditor .dx-state-focused .dx-editor-outlined {
-  border: none !important;
-  outline: none !important;
-  border-color: unset !important;
-
-} */
 
 /* plus icon */
 ::ng-deep .dx-icon-plus {
@@ -19,17 +13,18 @@
   height: 12px !important;
 }
 
-
 /* filter icon */
-::ng-deep .dx-icon-filter{
+::ng-deep .dx-icon-filter {
   color: #744BFC !important;
   font-size: 13px !important;
 }
 
+/* search Panel */
 ::ng-deep .dx-datagrid-search-panel {
   margin: 0 !important;
   border-radius: 39px !important;
   opacity: 1 !important;
+  max-width: 380px !important;
 }
 
 ::ng-deep .dx-datagrid-search-panel .dx-texteditor-input {
@@ -54,7 +49,11 @@
   color: white !important;
 }
 
-
+@media (max-width: 768px) {
+  ::ng-deep .dx-texteditor-buttons-container {
+    display: none !important;
+  }
+}
 
 /************** dataGrid toolbar css END **************/
 
@@ -81,17 +80,18 @@
 
 /************** dataGrid table css START **************/
 ::ng-deep .dx-bordered-top-view {
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   border-bottom-left-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
   border-color: #C4CEE5 !important;
 }
 
 ::ng-deep .dx-bordered-bottom-view {
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
   border-color: #C4CEE5 !important;
+  height: 576px !important;
 }
 
 ::ng-deep.dx-datagrid-pager {
@@ -129,21 +129,85 @@
   color: blueviolet !important;
 }
 
-::ng-deep .dx-pages-count{
+::ng-deep .dx-pages-count {
   color: blueviolet !important;
 }
+
+::ng-deep .dx-page-sizes {
+  width: 210px !important;
+  display: flex !important;
+  gap: 20px !important;
+}
+
+::ng-deep .dx-page-sizes::before {
+  content: "Show: " !important;
+  margin-top: 8px !important;
+  color: #744BFC !important;
+  font-size: 12px !important;
+}
+
+::ng-deep .dx-dropdowneditor.dx-dropdowneditor-field-clickable {
+  border-radius: 39px !important;
+  border-color: #CFC0FF !important;
+}
+
+::ng-deep .dx-dropdowneditor-icon::before {
+  content: url("../../../assets/images/sort.svg") !important;
+  top: 45% !important;
+}
+
+::ng-deep .dx-dropdowneditor-icon:hover {
+  background-color: unset !important;
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .dx-datagrid-pager {
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+
 
 /************** dataGrid pager css END **************/
 
 
-
 /************** dataGrid popup css START **************/
 
-::ng-deep .dx-popup-title{
+::ng-deep .dx-popup-title {
   border-bottom: none !important;
 }
 
-::ng-deep .dx-popup-wrapper > .dx-overlay-content{
+::ng-deep .dx-popup-wrapper>.dx-overlay-content {
   border-radius: 13px !important;
   border: 1px solid #C4CEE5 !important;
 }
+
+.col-span-2>dx-text-box {
+  border-radius: 39px !important;
+}
+
+/************** dataGrid popup css END **************/
+
+
+/************** filter builder popup css START **************/
+
+::ng-deep .dx-filterbuilder-action-icon {
+  color: rgba(92, 184, 92, .3) !important;
+}
+
+/* ok */
+::ng-deep div.dx-toolbar:nth-child(3)>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1) {
+  background: #744BFC;
+  border-radius: 39px;
+  color: white;
+
+}
+
+/* cancel */
+::ng-deep div.dx-toolbar:nth-child(3)>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1) {
+  background: #f5f7ff;
+  border-radius: 39px;
+  color: #744BFC;
+}
+
+/************** filter builder popup css END **************/
